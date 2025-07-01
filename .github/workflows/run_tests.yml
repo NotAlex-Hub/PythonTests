@@ -1,0 +1,19 @@
+name: Run autotests
+
+on: 
+    workflow_dispatch:
+        inputs:
+            deployment_target:
+                description: select tests to reun
+                required: true
+                type: choice
+                default": all
+                options:
+                    -all
+jobs: 
+    run-tests:
+        runs-on: ubuntu-latest
+        name: Tests
+        steps:
+            - name: Copy source code
+            uses: actions/checkout@v4
